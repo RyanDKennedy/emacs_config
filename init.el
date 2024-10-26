@@ -19,6 +19,11 @@
 
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
+(add-hook 'server-after-make-frame-hook
+	  (lambda ()
+	    (if (file-exists-p "/mnt/T7/due.org")
+		(find-file "/mnt/T7/due.org"))))
+
 
 
 ;; Package Manager
@@ -52,9 +57,10 @@
 ;; ========== My THEMES ======================================
 ;; (load-theme 'zenburn t)
 ;; (load-theme 'dracula t)
-(load-theme 'RDKDeeperBlue t)
+(load-theme 'RDKDeeperBlueNewFontNEW t)
 (global-hl-line-mode)
 
+(use-package projectile)
 (projectile-mode)
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
@@ -101,7 +107,7 @@
   :ensure t
   :init (global-flycheck-mode))
 
-(use-package rust-mode)
+;; (use-package rust-mode)
 
 ;; Which Key - command help on bottom of screen
 (use-package which-key
@@ -122,7 +128,7 @@
  '(company-quickhelp-color-background "#4F4F4F")
  '(company-quickhelp-color-foreground "#DCDCCC")
  '(custom-safe-themes
-   '("4fc01050d7a0f29566e1b2ec7122cf7f9f5b9c139c36bc9f613343d6e32d587b" "27f94199c4b23953f86e06b7a016c8ba65df9ed25c9754a6c6a8214fbdfa8ac6" "b5c7f425e3b91c9f5f47b67109ea72c71e6d69ee61492401160703868a76aebc" "dd5bfa0716af6766672f1ca8357527e8f0af54a8a84a70b096d30fd5304f1f2b" "64c4f764cb676e9c54cb573d8be5b1e307bb7474f0b7a2d9fe79084f25bee79a" "4c7f0bd08fc9ae089a10c2c85758924d026390a2a2093a23597f771153d52207" "b63f253b05aaa41dddd1abb590e3097be5adfbbe44dbc966decc4125cf175fb6" "b5da51d5e284a7903b82f52b12d0c5abe282af2581b81e124b8d7cd8e41cad4d" "f6778f2058f1afa10daa5c99f04079d6c514f94a0a2896380fec52572fe6f7fa" "941fa4df0046c74740504dec558bdc88cbb93ece60986e3ff3a836326e94a190" "5c7593d38a6563f7d5dd46c9dcc2e5e010cf3ecdd58f4279d85b64731d9054b5" "5a5ba1c3c015a34b5da44a1916700f59317614cf03eba31ec089b747cb217581" "f60c026ec2a78b4c265dc809efdbdae86f0ac01d5368021d5fc12aaa43407d76" "b2c484de7cb05bbe64d94f16d4a2dd039378e6efe8fcd16afa34e1eb200f8e04" "127acb3002b93fd86476373c2ddb1ac1e7f93b11799ce91202bfdb20f69a0434" "4f982ad3706b8e173a837b3ba563e4f0705adcb23b39d05a1dd4d0ee0d4e6f8d" "9cd34b79e6508c949a11c5806755a8700835c596556174511c122f443f348c2b" "fad16789403cdca85b33af85b23e39416387e7d9b20b51ba6f6696893fc2e6c9" "9a2466098bd117d89bb5c878699d3ca7d57d2ece9c7aa12225fea0f2c7ae891a" "2be72b955f0654e6b8f632ba88f9f6abfc58daecefd2ea821767ea683e34efd2" "03766fa949b0a23f49974f69240003ff50d6e859a787dec7c9f06acdb1ab037f" "f366d4bc6d14dcac2963d45df51956b2409a15b770ec2f6d730e73ce0ca5c8a7" default))
+   '("9c0412fcf6591a9e7a42d8c7198278d343ef70e872a05ad0b4d9a76b9cea082c" "4bcc839ae165e635ad488608a8627f63e3ee181c39accde2e738f1b08934108a" "c9bfd8f865ded457b4360b11409d0d363ebd01788f4853c3de9d3a64390ffe21" "4fc01050d7a0f29566e1b2ec7122cf7f9f5b9c139c36bc9f613343d6e32d587b" "27f94199c4b23953f86e06b7a016c8ba65df9ed25c9754a6c6a8214fbdfa8ac6" "b5c7f425e3b91c9f5f47b67109ea72c71e6d69ee61492401160703868a76aebc" "dd5bfa0716af6766672f1ca8357527e8f0af54a8a84a70b096d30fd5304f1f2b" "64c4f764cb676e9c54cb573d8be5b1e307bb7474f0b7a2d9fe79084f25bee79a" "4c7f0bd08fc9ae089a10c2c85758924d026390a2a2093a23597f771153d52207" "b63f253b05aaa41dddd1abb590e3097be5adfbbe44dbc966decc4125cf175fb6" "b5da51d5e284a7903b82f52b12d0c5abe282af2581b81e124b8d7cd8e41cad4d" "f6778f2058f1afa10daa5c99f04079d6c514f94a0a2896380fec52572fe6f7fa" "941fa4df0046c74740504dec558bdc88cbb93ece60986e3ff3a836326e94a190" "5c7593d38a6563f7d5dd46c9dcc2e5e010cf3ecdd58f4279d85b64731d9054b5" "5a5ba1c3c015a34b5da44a1916700f59317614cf03eba31ec089b747cb217581" "f60c026ec2a78b4c265dc809efdbdae86f0ac01d5368021d5fc12aaa43407d76" "b2c484de7cb05bbe64d94f16d4a2dd039378e6efe8fcd16afa34e1eb200f8e04" "127acb3002b93fd86476373c2ddb1ac1e7f93b11799ce91202bfdb20f69a0434" "4f982ad3706b8e173a837b3ba563e4f0705adcb23b39d05a1dd4d0ee0d4e6f8d" "9cd34b79e6508c949a11c5806755a8700835c596556174511c122f443f348c2b" "fad16789403cdca85b33af85b23e39416387e7d9b20b51ba6f6696893fc2e6c9" "9a2466098bd117d89bb5c878699d3ca7d57d2ece9c7aa12225fea0f2c7ae891a" "2be72b955f0654e6b8f632ba88f9f6abfc58daecefd2ea821767ea683e34efd2" "03766fa949b0a23f49974f69240003ff50d6e859a787dec7c9f06acdb1ab037f" "f366d4bc6d14dcac2963d45df51956b2409a15b770ec2f6d730e73ce0ca5c8a7" default))
  '(fci-rule-color "#383838")
  '(ispell-dictionary nil)
  '(nrepl-message-colors
@@ -156,7 +162,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((((type tty) (min-colors 256)) (:background "black")))))
 (global-company-mode)
 
 ;; Treemacs - graphical file tree
@@ -164,10 +170,10 @@
 
 
 ;; Neotree - graphical file tree
-(use-package neotree)
+;; (use-package neotree)
 
 ;; (global-set-key (kbd "C-c C-j") 'treemacs-select-window)
-(global-set-key (kbd "C-c C-j") 'neotree-toggle)
+;; (global-set-key (kbd "C-c C-j") 'neotree-toggle)
 
 
 (use-package glsl-mode)
@@ -290,15 +296,35 @@
 
 (setq-default c-default-style "ryan")
 
+;; Make Emacs in terminal background black
+
+
+;; Code Folding config
+(add-hook 'prog-mode-hook (lambda () (hs-minor-mode 1)))
+(add-hook 'hs-minor-mode-hook
+	  (lambda ()
+	    (keymap-set hs-minor-mode-map "C-c C-j" 'hs-toggle-hiding)))
+
+
 ;; Ace window config - window switcher
 (global-set-key (kbd "M-o") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 ;; (ace-window-display-mode) ;; not compatible with "mood line"
 
+;; Makes ace window work with html-mode
+(add-hook 'html-mode-hook
+          (lambda ()
+            (keymap-set html-mode-map "M-o b" nil)
+            (keymap-set html-mode-map "M-o d" nil)
+            (keymap-set html-mode-map "M-o i" nil)
+            (keymap-set html-mode-map "M-o l" nil)
+            (keymap-set html-mode-map "M-o o" nil)
+            (keymap-set html-mode-map "M-o e" nil)
+            (keymap-set html-mode-map "M-o" 'ace-window)))
 
-(eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)
-(eval-after-load 'eldoc-frame #'adwaita-dark-theme-eldoc-frame-configuration-enable)
-(adwaita-dark-theme-arrow-fringe-bmp-enable)
-(eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
+;; (eval-after-load 'neotree #'adwaita-dark-theme-neotree-configuration-enable)
+;; (eval-after-load 'eldoc-frame #'adwaita-dark-theme-eldoc-frame-configuration-enable)
+;; (adwaita-dark-theme-arrow-fringe-bmp-enable)
+;; (eval-after-load 'flycheck #'adwaita-dark-theme-flycheck-fringe-bmp-enable)
 
 ;;; init ends here

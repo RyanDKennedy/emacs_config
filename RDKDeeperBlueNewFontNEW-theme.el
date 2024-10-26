@@ -1,9 +1,8 @@
-(deftheme RDKDeeperBlue
+(deftheme RDKDeeperBlueNewFontNEW
   "Created 2024-03-06.")
 
 (custom-theme-set-faces
- 'RDKDeeperBlue
- '(default ((((class color) (min-colors 89)) (:background "#181a26" :foreground "gray80"))))
+ 'RDKDeeperBlueNewFontNEW
  '(cursor ((((class color) (min-colors 89)) (:background "green"))))
  '(fixed-pitch ((t (:family "Monospace"))))
  '(variable-pitch ((((type w32)) (:foundry "outline" :family "Arial")) (t (:family "Sans Serif"))))
@@ -68,7 +67,8 @@
  '(warning ((((class color) (min-colors 89)) (:foreground "Yellow"))))
  '(hl-line ((t (:background "#292b37"))))
  '(tab-bar ((t (:background "black" :foreground "white"))))
- '(tab-bar-tab ((t (:background "#333333" :foreground "grey80"))))
- '(tab-bar-tab-inactive ((t (:background "#181a26" :inherit tab-bar)))))
+ '(tab-bar-tab ((t (:background "#181a26" :foreground "grey80"))))
+ '(tab-bar-tab-inactive ((t (:inherit tab-bar :background "#333333"))))
+ '(default ((t (:background "#181a26" :foreground "gray80" :family "UbuntuMono")))))
 
-(provide-theme 'RDKDeeperBlue)
+(provide-theme 'RDKDeeperBlueNewFontNEW)
