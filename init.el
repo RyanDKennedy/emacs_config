@@ -92,6 +92,15 @@
 
 (global-set-key (kbd "C-c k") 'lsp-ui-doc-glance)
 
+(setenv "PATH" (concat (getenv "PATH") ":/home/kenne/.config/nvm/versions/node/v20.18.0/bin"))
+(add-to-list 'exec-path "/home/kenne/.config/nvm/versions/node/v20.18.0/bin")
+
+;; (setq lsp-clients-typescript-npm-location "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/npm")
+;; (setq lsp-clients-typescript-tls-path "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/typescript-language-server")
+;; (setq lsp-clients-typescript-tsserver "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/tsserver")
+;; (setq lsp-typescript-npm "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/npm")
+
+
 ;; Ivy - Nice Completion & UI Changes
 (use-package ivy
   :config
@@ -134,7 +143,7 @@
  '(nrepl-message-colors
    '("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3"))
  '(package-selected-packages
-   '(rust-mode lsp-java projectile hl-todo all-the-icons mood-line neotree adwaita-dark-theme marginalia company-glsl glsl-mode treemacs spinner counsel company which-key lsp-ui lsp-mode flycheck doom-modeline ivy))
+   '(typescript-mode rust-mode lsp-java projectile hl-todo all-the-icons mood-line neotree adwaita-dark-theme marginalia company-glsl glsl-mode treemacs spinner counsel company which-key lsp-ui lsp-mode flycheck doom-modeline ivy))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
