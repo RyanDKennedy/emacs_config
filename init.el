@@ -92,14 +92,11 @@
 
 (global-set-key (kbd "C-c k") 'lsp-ui-doc-glance)
 
+;; lsp ts-ls config
 (setenv "PATH" (concat (getenv "PATH") ":/home/kenne/.config/nvm/versions/node/v20.18.0/bin"))
 (add-to-list 'exec-path "/home/kenne/.config/nvm/versions/node/v20.18.0/bin")
-
-;; (setq lsp-clients-typescript-npm-location "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/npm")
-;; (setq lsp-clients-typescript-tls-path "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/typescript-language-server")
-;; (setq lsp-clients-typescript-tsserver "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/tsserver")
-;; (setq lsp-typescript-npm "/home/kenne/.config/nvm/versions/node/v20.18.0/bin/npm")
-
+(setq lsp-javascript-format-place-open-brace-on-new-line-for-control-blocks t)
+(setq lsp-javascript-format-place-open-brace-on-new-line-for-functions t)
 
 ;; Ivy - Nice Completion & UI Changes
 (use-package ivy
